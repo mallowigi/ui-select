@@ -1,7 +1,8 @@
 <div class="ui-select-bootstrap dropdown" ng-class="{open: $select.open}">
   <div class="ui-select-match"></div>
   <input type="text" autocomplete="off" tabindex="-1"
-         class="form-control ui-select-search"
+         class="form-control ui-select-search" ng-attr-id="{{ $select.id }}" ng-attr-name="{{ $select.name }}"
+         ng-required="{{ $select.required }}"
          placeholder="{{$select.placeholder}}"
          ng-model="$select.search"
          ng-show="$select.searchEnabled && $select.open">

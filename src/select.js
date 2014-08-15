@@ -900,6 +900,18 @@
           $select.placeholder = placeholder !== undefined ? placeholder : uiSelectConfig.placeholder;
         });
 
+        attrs.$observe('id', function(id){
+          $select.id = id || '';
+        });
+
+        attrs.$observe('name', function(name){
+          $select.name = name || '';
+        });
+
+        attrs.$observe('required', function(required){
+          $select.required = required;
+        });
+
         if($select.multiple){
           $select.sizeSearchInput();
         }
