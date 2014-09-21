@@ -153,3 +153,14 @@
 .ui-select-bootstrap.ng-dirty.ng-invalid > button.btn.ui-select-match {
     border-color: #D44950;
 }
+
+/* Allow posing the input search over the match */
+.ui-select-search {
+  position: absolute;
+  left: 0;
+}
+
+/* The input search will then mask the match, allowing suggestions like feature */
+.focus .ui-select-search {
+  opacity: 0.5;
+}
