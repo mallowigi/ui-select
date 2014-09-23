@@ -300,6 +300,24 @@
       return ctrl.items.indexOf(itemScope[ctrl.itemProperty]) === ctrl.activeIndex;
     };
 
+    ctrl.isActiveSearched = function(prop){
+      if (!ctrl.search) {
+        return false;
+      }
+
+      var activeItem = ctrl.items[ctrl.activeIndex],
+          search = ctrl.search;
+
+      if (!activeItem || !activeItem.hasOwnProperty(prop)) {
+        return false;
+      }
+
+      var propItem = activeItem[prop],
+          slicedSearch = propItem.slice(0, search.length);
+
+      return slicedSearch.toLowerCase() === search.toLowerCase();
+    };
+
     ctrl.isDisabled = function(itemScope) {
       var itemIndex = ctrl.items.indexOf(itemScope[ctrl.itemProperty]);
       var isDisabled = false;
