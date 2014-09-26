@@ -1,4 +1,4 @@
-# AngularJS ui-select [![Build Status](https://travis-ci.org/angular-ui/ui-select.svg?branch=master)](https://travis-ci.org/angular-ui/ui-select)
+# AngularJS ui-select-suggest [![Build Status](https://travis-ci.org/angular-ui/ui-select.svg?branch=master)](https://travis-ci.org/angular-ui/ui-select)
 
 AngularJS-native version of [Select2](http://ivaynberg.github.io/select2/) and [Selectize](http://brianreavis.github.io/selectize.js/).
 
@@ -15,6 +15,7 @@ Check [examples](https://github.com/angular-ui/ui-select/blob/master/examples).
 - Keyboard support
 - jQuery not required (except for old browsers)
 - Small code base: 400 lines of JavaScript vs 20 KB for select2.min.js
+- Give suggestions in the text field
 
 For the roadmap, check [issue #3](https://github.com/angular-ui/ui-select/issues/3) and the [Wiki page](https://github.com/angular-ui/ui-select/wiki/Roadmap).
 
@@ -25,10 +26,10 @@ Starting from Internet Explorer 8 and Firefox 3.6 included.
 ## Installation using [Bower](http://bower.io/)
 
 
-- `bower install angular-ui-select`
+- `bower install angular-ui-select-suggest`
 - Inside your HTML add
-  - select.js: `<script src="bower_components/angular-ui-select/dist/select.min.js"></script>`
-  - select.css: `<link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css">`
+  - select.js: `<script src="bower_components/angular-ui-select-suggest/dist/select.min.js"></script>`
+  - select.css: `<link rel="stylesheet" href="bower_components/angular-ui-select-suggest/dist/select.min.css">`
 - Add the `ui.select` module as a dependency: `angular.module("myApp", ["ui.select"]);`
 
 ### Bootstrap theme

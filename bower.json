@@ -1,11 +1,12 @@
 {
-  "name": "ui-select",
-  "version": "0.7.3",
-  "homepage": "https://github.com/angular-ui/ui-select",
+  "name": "ui-select-suggest",
+  "version": "0.8.0",
+  "homepage": "https://github.com/mallowigi/ui-select-suggest",
   "authors": [
-    "AngularUI"
+    "AngularUI",
+    "Mallowigi"
   ],
-  "description": "AngularJS ui-select",
+  "description": "AngularJS ui-select with suggestions",
   "main": [
     "dist/select.js",
     "dist/select.css"
