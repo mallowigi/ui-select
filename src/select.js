@@ -369,7 +369,6 @@
     ctrl.toggle = function(e) {
       if (ctrl.open) ctrl.close(); else ctrl.activate();
       e.preventDefault();
-      e.stopPropagation();
     };
 
     // Remove item from multiple select
