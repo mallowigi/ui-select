@@ -1,7 +1,7 @@
 /*!
- * ui-select
- * http://github.com/angular-ui/ui-select
- * Version: 0.7.2 - 2014-09-23T08:44:03.193Z
+ * ui-select-suggest
+ * https://github.com/mallowigi/ui-select-suggest
+ * Version: 0.8.3 - 2014-10-13T10:05:19.037Z
  * License: MIT
  */
 
@@ -377,7 +377,6 @@
     ctrl.toggle = function(e) {
       if (ctrl.open) ctrl.close(); else ctrl.activate();
       e.preventDefault();
-      e.stopPropagation();
     };
 
     // Remove item from multiple select
