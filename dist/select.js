@@ -1,7 +1,7 @@
 /*!
  * ui-select-suggest
  * https://github.com/mallowigi/ui-select-suggest
- * Version: 0.8.3 - 2014-10-13T10:05:19.037Z
+ * Version: 0.8.3 - 2014-11-03T16:55:42.027Z
  * License: MIT
  */
 
@@ -165,6 +165,7 @@
     ctrl.refreshDelay = undefined; // Initialized inside uiSelectChoices directive link function
     ctrl.multiple = false; // Initialized inside uiSelect directive link function
     ctrl.disableChoiceExpression = undefined; // Initialized inside uiSelect directive link function
+    ctrl.stickySelection = undefined; // Sticky search
 
     ctrl.isEmpty = function() {
       return angular.isUndefined(ctrl.selected) || ctrl.selected === null || ctrl.selected === '';
@@ -177,6 +178,11 @@
 
     // Most of the time the user does not want to empty the search input when in typeahead mode
     function _resetSearchInput() {
+      // If the user wants to keep the last search, do never erase the previous selection
+      if (ctrl.stickySelection){
+        return;
+      }
+
       if (ctrl.resetSearchInput) {
         ctrl.search = EMPTY_SEARCH;
         //reset activeIndex
@@ -358,6 +364,15 @@
         } else {
           ctrl.selected = item;
         }
+
+        // Sticky Selection is a function returned by $parse
+        if (ctrl.stickySelection && angular.isFunction(ctrl.stickySelection)) {
+          ctrl.search = ctrl.stickySelection(item);
+        }
+        else if (ctrl.stickySelection) { // true/false
+          ctrl.search = item;
+        }
+
         ctrl.close();
       }
     };
@@ -368,7 +383,7 @@
         _resetSearchInput();
         ctrl.open = false;
         $timeout(function(){
-          ctrl.focusser[0].focus();          
+          ctrl.focusser[0].focus();
         },0,false);
       }
     };
@@ -596,6 +611,9 @@
         $select.multiple = angular.isDefined(attrs.multiple);
 
         $select.onSelectCallback = $parse(attrs.onSelect);
+
+        // Sticky Selection attribute: if string, represents an expression
+        $select.stickySelection = angular.isString(attrs.stickySelection) ? $parse(attrs.stickySelection) : attrs.stickySelection;
 
         //From view --> model
         ngModel.$parsers.unshift(function (inputValue) {
